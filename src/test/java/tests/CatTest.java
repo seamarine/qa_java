@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+
 import java.util.List;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -39,6 +40,6 @@ public class CatTest {
     public void getFoodVerifyTest() throws Exception {
         Cat cat = new Cat(feline);
         cat.getFood();
-        Mockito.verify(feline,Mockito.times(1)).eatMeat();
+        Mockito.verify(feline, Mockito.times(1)).eatMeat();
     }
 }

@@ -12,7 +12,7 @@ public class FelineTest {
     public void eatMeatTest() throws Exception {
         Feline animal = new Feline();
         List<String> responseList = animal.eatMeat();
-        Assert.assertEquals(List.of("Животные", "Птицы", "Рыба"),responseList);
+        Assert.assertEquals(List.of("Животные", "Птицы", "Рыба"), responseList);
 
     }
 
@@ -20,20 +20,22 @@ public class FelineTest {
     public void getFamilyTest() {
         Feline animal = new Feline();
         String responseFamily = animal.getFamily();
-        Assert.assertEquals("Кошачьи",responseFamily);
+        Assert.assertEquals("Кошачьи", responseFamily);
     }
 
     @Test
     public void getKittensTest() {
         Feline animal = new Feline();
+        int expectedCountKittens = 1;
         int countKittens = animal.getKittens();
-        Assert.assertEquals(1,countKittens);
+        Assert.assertEquals(expectedCountKittens, countKittens);
     }
 
     @Test
     public void getKittensIntTest() {
         Feline animal = new Feline();
-        int countKittens = animal.getKittens(5);
-        Assert.assertEquals(5,countKittens);
+        int countKittensCheck = 5;
+        int countKittens = animal.getKittens(countKittensCheck);
+        Assert.assertEquals(countKittensCheck, countKittens);
     }
 }

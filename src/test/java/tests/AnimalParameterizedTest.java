@@ -12,28 +12,28 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public class AnimalParameterizedTest {
 
-        private final String checkValue;
-        private final List<String> expectedValue;
+    private final String checkValue;
+    private final List<String> expectedValue;
 
-        public AnimalParameterizedTest(String checkingValue,List<String> expectedValue){
-            this.checkValue = checkingValue;
-            this.expectedValue = expectedValue;
-        }
-
-        @Parameterized.Parameters
-        public static Object[][] getTestData(){
-            return new Object[][]{
-                    {"Травоядное", List.of("Трава", "Различные растения")},
-                    {"Хищник", List.of("Животные", "Птицы", "Рыба")},
-            };
-        }
-
-        @Test
-        public void getFoodTest() throws Exception {
-            Animal animal = new Animal();
-            List<String> actual = animal.getFood(checkValue);
-            assertEquals(expectedValue,actual);
-        }
+    public AnimalParameterizedTest(String checkingValue, List<String> expectedValue) {
+        this.checkValue = checkingValue;
+        this.expectedValue = expectedValue;
     }
+
+    @Parameterized.Parameters(name = "Питание для разных видов животных. Тестовые данные: {0}{1}")
+    public static Object[][] getTestData() {
+        return new Object[][]{
+                {"Травоядное", List.of("Трава", "Различные растения")},
+                {"Хищник", List.of("Животные", "Птицы", "Рыба")},
+        };
+    }
+
+    @Test
+    public void getFoodTest() throws Exception {
+        Animal animal = new Animal();
+        List<String> actual = animal.getFood(checkValue);
+        assertEquals(expectedValue, actual);
+    }
+}
 
 
